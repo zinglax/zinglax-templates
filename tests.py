@@ -28,6 +28,10 @@ class TemplaterTests(unittest.TestCase):
         self.assertIsNotNone(t.template_env)
         self.assertIsInstance(t.template_env, jinja2.environment.Environment)
 
+    def test_templater_template_folder_exists(self):
+        """Test templater input folder exists."""
+        self.assertTrue(os.path.isdir(config.TEMPLATE_DIR))
+
     def test_templater_input_folder_exists(self):
         """Test templater input folder exists."""
         self.assertTrue(os.path.isdir(config.INPUT_DIR))
@@ -37,6 +41,15 @@ class TemplaterTests(unittest.TestCase):
         self.assertTrue(os.path.isdir(config.OUTPUT_DIR))
 
 
+    def test_templater_info_page(self):
+        """Test templater info page"""
+        t = templater.Templater()
+
+
+
+
 
 if __name__ == '__main__':
     unittest.main()
+
+
