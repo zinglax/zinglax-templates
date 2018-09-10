@@ -1,0 +1,14 @@
+{% extends "document.html.jinja2" %}
+{% block title %}Test Document{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        body { background: grey; }
+    </style>
+{% endblock %}
+{% block content %}
+    <h1>Test Document</h1>
+    <p>
+      This is just a test.
+    </p>
+{% endblock %}

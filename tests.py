@@ -40,10 +40,12 @@ class TemplaterTests(unittest.TestCase):
         """Test templater output folder exists."""
         self.assertTrue(os.path.isdir(config.OUTPUT_DIR))
 
-
-    def test_templater_info_page(self):
+    def test_templater_render_page(self):
         """Test templater info page"""
         t = templater.Templater()
+        outfile = os.path.join(config.OUTPUT_DIR, "test", "test_document.html")
+        data = {}
+        t.render_file(outfile, "test_document.html.jinja2", data)
 
 
 

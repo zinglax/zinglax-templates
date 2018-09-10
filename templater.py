@@ -41,5 +41,18 @@ class Templater():
         with open(out_file, "w+") as f:
             f.write(rendered_data) 
 
+    def generate_info_json(self):
+        """Create info JSON file that contains information about the Templater project"""
+        # Date
+        # Template Files
+        # Info Files
+        # Output Files
+        # JSON Used
+        pass
+
+
+
+
+
 
 
