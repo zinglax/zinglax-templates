@@ -1,0 +1,5 @@
+{
+	"title" : "JSON Test Document",
+	"bg_color" : "tomato",
+	"content" : "This is the JSON Test Document Page, It was created by loading JSON data in to a Jinja2 template"
+}

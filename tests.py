@@ -40,16 +40,35 @@ class TemplaterTests(unittest.TestCase):
         """Test templater output folder exists."""
         self.assertTrue(os.path.isdir(config.OUTPUT_DIR))
 
-    def test_templater_render_page(self):
+    def test_templater_render_template(self):
         """Test templater info page"""
+        # Remove existing file. 
+        out_file = os.path.join(config.OUTPUT_DIR, "test", "test_document.html")
+        if os.path.exists(out_file):
+            os.remove(out_file)
+
+        # Create templated file.
         t = templater.Templater()
-        outfile = os.path.join(config.OUTPUT_DIR, "test", "test_document.html")
         data = {}
-        t.render_file(outfile, "test_document.html.jinja2", data)
+        t.render_template(out_file, "test_document.html.jinja2", data)
+        
+        # Ensure output file exists.
+        self.assertTrue(os.path.exists(out_file))
 
+    def test_templater_render_json(self):
+        """Test templater info page"""
+        # Remove existing file. 
+        out_file = os.path.join(config.OUTPUT_DIR, "test", "test_document.html")
+        if os.path.exists(out_file):
+            os.remove(out_file)
+       
+        # Create templated file.
+        t = templater.Templater()
+        json_file = os.path.join(config.INPUT_DIR, "test", "test_json.json")
+        t.render_json(out_file, "test_json.html.jinja2", json_file)
 
-
-
+        # Ensure output file exists.
+        self.assertTrue(os.path.exists(out_file))
 
 if __name__ == '__main__':
     unittest.main()

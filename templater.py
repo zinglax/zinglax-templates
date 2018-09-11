@@ -35,11 +35,30 @@ class Templater():
         rendered_data = self.template_env.get_template(template).render(data=data)
         return rendered_data
 
-    def render_file(self, out_file, template, data):
+    def render_template(self, out_file, template, data):
         """Render a file with given data and template""" 
         rendered_data = self.render(template, data)
+ 
+        # Ensure parent output folder exists.
+        out_folder = os.path.dirname(out_file)
+        if not os.path.exists(out_folder):
+            os.mkdir(out_folder)
+            
+        # Write rendered data to file. 
         with open(out_file, "w+") as f:
             f.write(rendered_data) 
+
+    def render_json(self, out_file, template, json_file):
+        """Renders a file based on a template and JSON data file"""
+        
+        # Ensure parent output folder exists.
+        out_folder = os.path.dirname(out_file)
+
+        if not os.path.exists(out_folder):
+            raise ValueError("JSON File not found")
+        with open(json_file) as f:
+            json_data = json.load(f)
+            self.render_template(out_file, template, json_data)
 
     def generate_info_json(self):
         """Create info JSON file that contains information about the Templater project"""
