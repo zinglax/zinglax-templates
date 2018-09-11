@@ -1,14 +1,14 @@
 {% extends "document.html.jinja2" %}
-{% block title %}{{ data.title }}{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 {% block head %}
     {{ super() }}
     <style type="text/css">
-        body { background: {{ data.bg_color }}; }
+        body { background: {{ bg_color }}; }
     </style>
 {% endblock %}
 {% block content %}
-    <h1>{{ data.title }}</h1>
+    <h1>{{ title }}</h1>
     <p>
-      {{ data.content }} 
+      {{ content }} 
     </p>
 {% endblock %}

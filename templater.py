@@ -32,7 +32,7 @@ class Templater():
 
     def render(self, template, data):
         """Render templated data""" 
-        rendered_data = self.template_env.get_template(template).render(data=data)
+        rendered_data = self.template_env.get_template(template).render(data)
         return rendered_data
 
     def render_template(self, out_file, template, data):
@@ -58,7 +58,7 @@ class Templater():
             raise ValueError("JSON File not found")
         with open(json_file) as f:
             json_data = json.load(f)
-            self.render_template(out_file, template, json_data)
+            self.render_template(out_file, template, data=json_data)
 
     def generate_info_json(self):
         """Create info JSON file that contains information about the Templater project"""
