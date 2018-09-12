@@ -60,18 +60,3 @@ class Templater():
             json_data = json.load(f)
             self.render_template(out_file, template, data=json_data)
 
-    def generate_info_json(self):
-        """Create info JSON file that contains information about the Templater project"""
-        # Date
-        # Template Files
-        # Info Files
-        # Output Files
-        # JSON Used
-        pass
-
-
-
-
-
-
-
